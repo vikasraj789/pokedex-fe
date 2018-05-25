@@ -1,0 +1,174 @@
+@import "imports.scss";
+@include generate-margin-classes-for(-50);
+//generating padding classes
+$paddingIndex: 0;
+@while ($paddingIndex < 101) {
+    @include generate-padding-classes-for($paddingIndex);
+    $paddingIndex: $paddingIndex + 5;
+}
+
+.no-render {
+    display: none;
+}
+.render {
+    display: block;
+}
+.no-show {
+    visibility: hidden;
+}
+.show {
+    visibility: visible;
+}
+.flex {
+    flex: 1;
+}
+.menuButton {
+    margin-left: -12;
+    margin-right: 20;
+}
+
+.h-100p {
+    height: 100%;
+}
+
+//Card Styles
+.card {
+    min-width: 300px;
+    max-width: 345px;
+    .media {
+        height: 0;
+        padding-top: 56.25%; // 16:9
+    }
+}
+
+//Login styles
+#login-holder {
+    @include flex-box();
+    @extend .h-100p;
+    align-items: center;
+    justify-content: center;
+}
+
+//Dashboard styles
+.pokedex-holder {
+    background-color: $bg_default;
+    margin-top: 64px;
+    .header {
+        @include flex-box();
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: space-between;
+        background: $bg_default;
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: 5;
+        .type-holder {
+            min-width: 300px;
+            max-width: 300px;
+        }
+        .name-holder {
+            min-width: 400px;
+            max-width: 400px;
+        }
+    }
+}
+.loading {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+.Select-control {
+    display: flex;
+    align-items: center;
+    border: 0;
+    height: auto;
+    background: transparent;
+    &:hover {
+        box-shadow: none;
+    }
+}
+.Select-multi-value-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: "wrap";
+}
+.Select--multi .Select-input {
+    margin: 0;
+}
+.Select.has-value.is-clearable.Select--single > .Select-control .Select-value {
+    padding: 0;
+}
+.Select-noresults {
+    padding: 16px;
+}
+.Select-input {
+    display: inline-flex !important;
+    padding: 0;
+    height: auto;
+}
+.Select-input input {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: default;
+    display: inline-block;
+    font-family: inherit;
+    font-size: inherit;
+    margin: 0;
+    outline: 0;
+}
+.Select-placeholder,
+.Select--single .Select-value {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    font-family: "Roboto", "Helvetica", "Arial";
+    font-size: 1rem;
+    padding: 0;
+}
+.Select-placeholder {
+    opacity: 0.42;
+    color: #000;
+}
+.Select-menu-outer {
+    background-color: #fff;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+    position: absolute;
+    left: 0;
+    top: calc(100% + 8px);
+    width: 100%;
+    z-index: 2;
+    max-height: $ITEM_HEIGHT * 4.5px;
+}
+.Select.is-focused:not(.is-open) > .Select-control {
+    box-shadow: none;
+}
+.Select-menu {
+    max-height: $ITEM_HEIGHT * 4.5px;
+    overflow-y: auto;
+}
+.Select-menu div {
+    box-sizing: content-box;
+}
+.Select-arrow-zone,
+.Select-clear-zone {
+    color: rgba(0, 0, 0, 0.54);
+    cursor: pointer;
+    height: 21px;
+    width: 21px;
+    z-index: 1;
+}
+// Only for screen readers. We can't use display none.
+.Select-aria-only {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+}
