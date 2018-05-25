@@ -6,7 +6,9 @@ $paddingIndex: 0;
     @include generate-padding-classes-for($paddingIndex);
     $paddingIndex: $paddingIndex + 5;
 }
-
+body {
+    background-color: $bg_default;
+}
 .no-render {
     display: none;
 }
