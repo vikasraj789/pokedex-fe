@@ -7,15 +7,15 @@ import LoginPage from "./components/loginPage";
 import ProfilePage from "./components/profilePage";
 
 const App = () => (
-    <div className="h-100p">
-        <main className="h-100p">
-            <Switch>
-                <ProtectedRoute exact path="/" component={DashBoardPage} />
-                <ProtectedRoute exact path="/profile" component={ProfilePage} />
-                <Route exact path="/login" component={LoginPage} />
-            </Switch>
-        </main>
-    </div>
+  <div className="h-100p">
+    <main className="h-100p">
+      <Switch>
+        <ProtectedRoute exact path="/" component={DashBoardPage} />
+        <ProtectedRoute exact path="/profile" component={ProfilePage} />
+        <Route exact path="/login" component={LoginPage} />
+      </Switch>
+    </main>
+  </div>
 );
 
 export default App;
